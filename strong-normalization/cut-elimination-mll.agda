@@ -18,8 +18,6 @@ open import Data.Sum     using (_⊎_; inj₁; inj₂)
 open import Data.Nat     using (ℕ; zero; suc; _+_; _⊔_; _≤_; z≤n; s≤s)
 open import Data.Nat.Properties
                          using (≤-reflexive; ≤-refl; ≤-trans; m≤m⊔n; n≤m⊔n; m≤m+n; n≤m+n)
-import Relation.Binary.PropositionalEquality as Eq
-open Eq.≡-Reasoning
 
 infix   50 ⊢_ _~_
 infixl  60 _⊝_⇒_
