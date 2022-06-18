@@ -1,6 +1,6 @@
 
 --
--- Proof of cut elimiation for MLL (the multiplicative fragment
+-- Proof of cut elimination for MLL (the multiplicative fragment
 -- of linear logic).
 --
 -- The proof is an adaptation of the proof of cut elimination 
