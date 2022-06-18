@@ -4,7 +4,7 @@
 -- of linear logic).
 --
 -- The proof is an adaptation of the proof of cut elimination 
--- of classical sequent calculus, as found for instance in
+-- for classical sequent calculus, as found for instance in
 -- Sørensen and Urzyczyn, Lectures on the Curry Howard Isomorphism,
 -- Section 7.
 --
