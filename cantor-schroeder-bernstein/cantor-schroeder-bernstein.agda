@@ -18,8 +18,8 @@
 ----     h(a) := f(a)  otherwise
 ----
 ---- The theorem depends on a witness the law of excluded middle, as
----- checking whether an element descends from a root is not
----- constructive.
+---- checking whether an element descends from a root cannot be done
+---- constructively.
 
 open import Relation.Nullary using (¬_)
 open import Relation.Binary.PropositionalEquality
