@@ -5,7 +5,7 @@
 ----   half-adjoint equivalences,
 ----   contractible maps,
 ---- following Chapter 4 of the HoTT book
----- and Pierre-Louis Curien's ECI 2022 course.
+---- and Pierre-Louis Curien's ECI 2021 course.
 
 open import Data.Unit
   using (⊤)
