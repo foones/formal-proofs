@@ -1,5 +1,29 @@
 
--- Soundness and completeness of classical propositional logic
+----
+---- Soundness and completeness of classical propositional logic
+----
+---- The idea of the completness proof is as follows.
+----
+---- - If Γ is a context and v a valuation,
+----   we say that (Γ, v) is specified for a propositional variable P
+----      if v(P) = 1 implies that P occurs in Γ
+----     and v(P) = 0 implies that ¬P occurs in Γ.
+---- - We say that (Γ, v) is specified for a formula A
+----     if v ⊨ A  implies Γ ⊢ A
+----    and v ⊨ ¬A implies Γ ⊢ ¬A.
+---- - Prove the "Main Semantic Lemma" ("sem" below), saying that
+----     if (Γ, v) is specified for all the propositional variables in A
+----   then (Γ, v) is specified for A.
+---- - To prove that all tautologies are provable, suppose that ⊨ A
+----   and using the law of excluded middle reduce proving ⊢ A
+----   to proving Γ ⊢ A for all 2^n combinations in which the propositional
+----   variables of A can be affirmed/denied.
+----   Each combination determines a context Γ and a valuation v
+----   such that (Γ, v) is specified for all the propositional variables in A,
+----   hence (Γ, v) is specified for A,
+----   and since v ⊨ A (because A is a tautology)
+----   we have Γ ⊢ A.
+----
 
 open import Data.Nat using (ℕ; suc; zero; _⊔_; _+_; _≤_; _<_; _≟_)
 open import Data.Nat.Properties using (
@@ -249,9 +273,10 @@ goR : (∀ P → occurs P (A ⇒ B) → specifiesVar Γ v P)
        → (∀ P → occurs P B → specifiesVar Γ v P)
 goR S P o = S P (occurs-⇒R o)
 
--- Main semantic lemma
+-- Main Semantic Lemma
+
 sem : ∀ A v → (∀ P → occurs P A → specifiesVar Γ v P)
-            → specifiesForm Γ v A 
+            → specifiesForm Γ v A
 sem (propVar P) v S =
   let (sl , sr) = S P occurs-root in
     (λ x → ax (sl x)) , (λ x → ax (sr (neg-true₁ x)))
