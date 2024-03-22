@@ -100,14 +100,14 @@ foldr≡foldri f z xs = foldr≡foldri* f z [] xs
 ---- Structural vs. primitive recursion ----
 
 -- foldr in terms of recr
-foldrr : ∀ {a b : Set} → (a → b → b) → b → List a → b
-foldrr f z = recr (λ x xs rec → f x rec) z
+foldrp : ∀ {a b : Set} → (a → b → b) → b → List a → b
+foldrp f z = recr (λ x xs rec → f x rec) z
 
--- foldr ≡ foldrr (immediate)
-foldr≡foldrr : ∀ {a b : Set} (f : a → b → b) (z : b) (xs : List a)
-               → foldr f z xs ≡ foldrr f z xs
-foldr≡foldrr f z []       = refl
-foldr≡foldrr f z (x ∷ xs) = cong (f x) (foldr≡foldrr f z xs)
+-- foldr ≡ foldrp (immediate)
+foldr≡foldrp : ∀ {a b : Set} (f : a → b → b) (z : b) (xs : List a)
+               → foldr f z xs ≡ foldrp f z xs
+foldr≡foldrp f z []       = refl
+foldr≡foldrp f z (x ∷ xs) = cong (f x) (foldr≡foldrp f z xs)
 
 -- recr in terms of foldr
 recr2 : ∀ {a b : Set} → (a → List a → b → b) → b → List a → b
